@@ -8,13 +8,18 @@ return{
   },
   config = function()
     require("neo-tree").setup({
+      window = {
+          position = "left",
+          width = 30,
+        },
       filesystem = {
         filtered_items = {
           visible = false, -- when true, they will just be displayed differently than normal items
-          hide_dotfiles = false
+          hide_dotfiles = true
         }
       }
     })
+    vim.keymap.set('n', '<C-b>', ':Neotree filesystem toggle<CR>')
     vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>')
   end
 }
