@@ -15,8 +15,14 @@ precmd() {
   fi
 }
 
+# completions
+autoload -Uz compinit
+compinit
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Prompt config
-PS1=" "
+PS1=" "
 
 bindkey '^[[1;5C' forward-word  # ctrl + right ile kelime ileri gitme
 bindkey '^[[1;5D' backward-word # ctrl + left ile kelime geri gitme
@@ -57,3 +63,8 @@ export TERM=xterm-256color
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export BROWSER=google-chrome

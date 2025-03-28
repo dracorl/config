@@ -24,7 +24,7 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
-      --[[lspconfig.eslint.setup({
+      lspconfig.eslint.setup({
         capabilities = capabilities,
         root_dir = lspconfig.util.root_pattern(
           '.eslintrc',
@@ -36,9 +36,10 @@ return {
         -- Disabled to prevent "No ESLint configuration found" exceptions
         -- 'package.json',
         ),
-      })]]
+      })
       lspconfig.lua_ls.setup({ capabilities = capabilities })
       lspconfig.tsserver.setup({
+        root_dir = lspconfig.util.root_pattern("jsconfig.json", "package.json", ".git"),
         { capabilities = capabilities },
         settings = {
           tsserver = {
